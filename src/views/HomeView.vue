@@ -5,23 +5,27 @@
         <h1>🚀 Vue + Go Blockchain Explorer</h1>
   
         <form class="form" @submit.prevent="submitTx">
+          <div class="form-row">
             <div class="form-group">
-            <label for="sender">Sender Name</label>
-            <input id="sender" v-model="sender" placeholder="Ben" />
+              <label for="sender">Sender (e.g., John Doe)</label>
+              <input id="sender" v-model="sender" placeholder="Ben" />
             </div>
-
             <div class="form-group">
-            <label for="receiver">Receiver Name</label>
-            <input id="receiver" v-model="receiver" placeholder="Cam" />
+              <label for="receiver">Receiver (e.g., NotJohn Doe)</label>
+              <input id="receiver" v-model="receiver" placeholder="Cam" />
             </div>
-
             <div class="form-group">
-            <label for="amount">BenCoin Amount</label>
-            <input id="amount" v-model.number="amount" type="number" placeholder="123" />
+              <label for="amount">BenCoin Amount (e.g., 100)</label>
+              <input id="amount" v-model.number="amount" type="number" placeholder="100" />
             </div>
-          <button>Submit Transaction</button>
+            <div class="form-group button-group">
+              <button type="submit">Submit Transaction</button>
+            </div>
+          </div>
         </form>
-  
+
+        <div class="spacer"></div>
+        
         <div class="buttons">
           <button @click="mine">⛏️ Mine Block</button>
           <button @click="loadWallets">🔄 Refresh Wallets</button>
