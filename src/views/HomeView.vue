@@ -79,8 +79,8 @@
       };
   
       const mine = async () => {
-        await store.mineBlock();
-        alert('Block mined!');
+        const block = await store.mineBlock();
+        alert('Block mined!\nNew block hash: ' + block.blockHash);
         await loadBlockchain();
       };
   

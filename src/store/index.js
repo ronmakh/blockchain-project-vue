@@ -1,4 +1,3 @@
-// src/store/index.js
 import { defineStore } from 'pinia';
 
 export const useBlockchainStore = defineStore('blockchain', {
@@ -23,7 +22,10 @@ export const useBlockchainStore = defineStore('blockchain', {
       });
     },
     async mineBlock() {
-      await fetch('http://localhost:8081/mine');
+      const res = await fetch('http://localhost:8081/mine');
+      const data = await res.json();
+      this.mine = data.blockHash;
+      return data;
     }
   }
 });
