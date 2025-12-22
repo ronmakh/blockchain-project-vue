@@ -2,7 +2,17 @@
     <div class="container">
       <!-- Top Input & Actions -->
       <div class="top-section">
-        <h1>🚀 Vue + Go Blockchain Explorer</h1>
+        <div class="header-container">
+          <div class="header-container">
+            <h1>
+              <img src="/BenCoin.png" alt="BenCoin" class="logo-img" />
+              🚀 Vue + Go Blockchain Explorer using BenCoin
+            </h1>
+            <button class="info-btn" @click="showInfo = true" title="Learn how blockchain works">
+              ℹ️ Info
+            </button>
+          </div>
+        </div>
   
         <form class="form" @submit.prevent="submitTx">
           <div class="form-row">
@@ -54,6 +64,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Info Modal -->
+    <InfoModal :isOpen="showInfo" @close="showInfo = false" />
   </template>
   
   <script>
@@ -61,9 +74,10 @@
   import { useBlockchainStore } from '@/store';
   import WalletList from '@/components/WalletList.vue';
   import BlockList from '@/components/BlockList.vue';
+  import InfoModal from '@/components/InfoModal.vue';
   
   export default {
-    components: { WalletList, BlockList },
+    components: { WalletList, BlockList, InfoModal },
     setup() {
       const store = useBlockchainStore();
       const sender = ref('');
@@ -72,6 +86,7 @@
   
       const walletError = ref('');
       const blockchainError = ref('');
+      const showInfo = ref(false);
   
       const submitTx = async () => {
         await store.submitTransaction(sender.value, receiver.value, amount.value);
@@ -117,7 +132,8 @@
         loadWallets,
         loadBlockchain,
         walletError,
-        blockchainError
+        blockchainError,
+        showInfo
       };
     }
   };
@@ -139,10 +155,40 @@
     margin-bottom: 2rem;
   }
   
+  .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
   h1 {
     text-align: center;
     color: #00e676;
     margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .info-btn {
+    padding: 0.5rem 1rem;
+    background-color: #00e676;
+    color: #121212;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .info-btn:hover {
+    background-color: #00c853;
+    transform: translateY(-50%) scale(1.05);
   }
   
   .form {
