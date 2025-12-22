@@ -1,28 +1,35 @@
 import { defineStore } from 'pinia';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const useBlockchainStore = defineStore('blockchain', {
   state: () => ({
     wallets: {},
-    blockchain: []
+    blockchain: [],
+    mine: null
   }),
+
   actions: {
     async fetchWallets() {
-      const res = await fetch('http://localhost:8081/wallets');
+      const res = await fetch(`${API_BASE_URL}/wallets`);
       this.wallets = await res.json();
     },
+
     async fetchBlockchain() {
-      const res = await fetch('http://localhost:8081/blockchain');
+      const res = await fetch(`${API_BASE_URL}/blockchain`);
       this.blockchain = await res.json();
     },
+
     async submitTransaction(sender, receiver, amount) {
-      await fetch('http://localhost:8081/transaction', {
+      await fetch(`${API_BASE_URL}/transaction`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sender, receiver, amount })
       });
     },
+
     async mineBlock() {
-      const res = await fetch('http://localhost:8081/mine');
+      const res = await fetch(`${API_BASE_URL}/mine`);
       const data = await res.json();
       this.mine = data.blockHash;
       return data;
