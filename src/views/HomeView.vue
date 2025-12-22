@@ -5,13 +5,13 @@
         <div class="header-container">
           <div class="header-container">
             <h1>
+              Vue + Go Blockchain Explorer using BenCoin  
               <img src="/BenCoin.png" alt="BenCoin" class="logo-img" />
-              🚀 Vue + Go Blockchain Explorer using BenCoin
             </h1>
-            <button class="info-btn" @click="showInfo = true" title="Learn how blockchain works">
+          </div>
+          <button class="info-btn" @click="showInfo = true" title="Learn how blockchain works">
               ℹ️ Info
             </button>
-          </div>
         </div>
   
         <form class="form" @submit.prevent="submitTx">
@@ -175,20 +175,20 @@
   }
 
   .logo-img {
-    height: 35px;
-    width: 35px;
+    height: 55px;
+    width: 55px;
     object-fit: contain;
     animation: spin 3s linear infinite;
   }
 
-  @keyframes spin {
+  /* @keyframes spin {
     from {
       transform: rotate(0deg);
     }
     to {
       transform: rotate(360deg);
     }
-  }
+  } */
 
   .info-btn {
     padding: 0.5rem 1rem;
