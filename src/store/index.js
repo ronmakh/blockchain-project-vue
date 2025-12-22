@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
-const API_BASE_URL = process.env.VUE_APP_API_BASE_URL || 'http://localhost:8080';
-console.log('API_BASE_URL from store:', API_BASE_URL, 'process.env:', process.env.VUE_APP_API_BASE_URL);
+const API_BASE_URL = process.env.VITE_API_BASE_URL || 'https://blockchain-project.fly.dev';
+console.log('API_BASE_URL from store:', API_BASE_URL, 'process.env:', process.env.VITE_API_BASE_URL);
 
 export const useBlockchainStore = defineStore('blockchain', {
   state: () => ({

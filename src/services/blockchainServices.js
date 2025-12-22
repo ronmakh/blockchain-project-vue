@@ -1,5 +1,5 @@
-const BASE_URL = process.env.VUE_APP_API_BASE_URL || 'http://localhost:8080';
-console.log('BASE_URL from services:', BASE_URL, 'env var:', process.env.VUE_APP_API_BASE_URL);
+const BASE_URL = process.env.VITE_API_BASE_URL || 'http://localhost:8080';
+console.log('BASE_URL from services:', BASE_URL, 'env var:', process.env.VITE_API_BASE_URL);
 
 export async function submitTransaction(data) {
   await fetch(`${BASE_URL}/transaction`, {
