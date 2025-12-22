@@ -154,7 +154,7 @@
   .top-section {
     margin-bottom: 2rem;
   }
-  
+
   .header-container {
     display: flex;
     justify-content: center;
@@ -162,7 +162,55 @@
     gap: 1rem;
     position: relative;
   }
+  
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+    color: #00e676;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
 
+  .logo-img {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+    animation: spin 3s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .info-btn {
+    padding: 0.5rem 1rem;
+    background-color: #00e676;
+    color: #121212;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .info-btn:hover {
+    background-color: #00c853;
+    transform: translateY(-50%) scale(1.05);
+  }
+  
   h1 {
     text-align: center;
     color: #00e676;
