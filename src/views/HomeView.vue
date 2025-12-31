@@ -5,7 +5,7 @@
         <div class="header-container">
           <div class="header-container">
             <h1>
-              Vue + Go Blockchain Explorer using BenCoin  
+              Blockchain Explorer using BenCoin  
               <img src="/BenCoin.png" alt="BenCoin" class="logo-img" />
             </h1>
           </div>
